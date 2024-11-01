@@ -229,7 +229,7 @@ class TransformerLSDecoder(nn.Module):
         if self.emb_dropout is not None:
             h = self.emb_dropout(h)
 
-        out = F.log_softmax(self.out_emb(h).float(), dim=-1).type_as(h)
+        out = self.out_emb(h).float().type_as(h)
         dummy_loss = None
 
         if padded:

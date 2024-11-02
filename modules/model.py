@@ -233,7 +233,7 @@ class TransformerLSDecoder(nn.Module):
         dummy_loss = None
 
         if padded:
-            out = out[:, :h.shape[1]]
+            out = out[:, :orig_seqlen]
 
         return out, h_cache_next, dummy_loss
     
